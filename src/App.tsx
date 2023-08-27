@@ -1,10 +1,10 @@
+import NavigationRoutes from "./routes"
+
 const App = () => {
 
   return (
-    <div className="min-h-screen">
-      <h1
-        className="flex items-center justify-center text-white text-4xl"
-      >Init Project</h1>
+    <div className="min-h-screen justify-center flex items-center bg-slate-600">
+      <NavigationRoutes />
     </div>
   )
 }
