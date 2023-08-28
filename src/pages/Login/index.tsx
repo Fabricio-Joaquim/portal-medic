@@ -8,7 +8,7 @@ const Login = () => {
     const { control, onSubmit } = useFormLogin()
 
     return (
-        <div className="w-4/12 flex flex-col backdrop-blur-xl backdrop:blur-lg bg-white p-20 rounded-xl">
+        <div className=" md:w-10/12 lg:w-4/12 flex flex-col backdrop-blur-xl backdrop:blur-lg bg-white p-20 rounded-xl">
             <h1 className="text-3xl font-bold text-center mb-10">Sign In</h1>
             <form onSubmit={onSubmit} className=''>
                 <InputText name="username" label="Email" control={control} placeholder='user12345' Icon={RiUser3Fill} />

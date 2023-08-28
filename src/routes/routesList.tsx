@@ -11,7 +11,7 @@ export const RouterList = [
         private: false,
     },
     {
-        path: "/",
+        path: "/home",
         component: Home,
         exact: true,
         private: true,
