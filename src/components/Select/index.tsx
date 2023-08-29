@@ -19,7 +19,7 @@ export function Select({ name, label, options, control }: ISelectProps) {
 
     return (
         <div className="flex flex-col">
-            <label htmlFor={name} className="text-gray-600 font-semibold">{label}</label>
+            <label htmlFor={name} className="block mb-2 text-sm font-medium text-black dark:text-white">{label}</label>
             <select
                 {...field}
                 id={name}
