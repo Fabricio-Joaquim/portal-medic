@@ -85,6 +85,7 @@ function TableGeneric({ headers, data, handlerPageIndexLimit }: ITableGenericPro
 
   return (
     <div className="p-2">
+      <div className='flex justify-between'>
       <div className='flex'>
         <span className="flex items-center gap-1">
           Page size:
@@ -102,6 +103,8 @@ function TableGeneric({ headers, data, handlerPageIndexLimit }: ITableGenericPro
             </option>
           ))}
         </select>
+      </div>
+      <input className="border rounded px-2 py-3" type="text" placeholder="Search" onChange={(e) => table.setGlobalFilter(e.target.value)} />
       </div>
       <div className="h-2" />
       <table className='striped-table'>

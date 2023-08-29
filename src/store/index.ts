@@ -1,14 +1,20 @@
 import { persistReducer, persistStore } from 'redux-persist';
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import storage from 'redux-persist/lib/storage';
 import userDataReducer from './userData';
+import loadingReducer from "./Loading";
 
 const persistConfig = {
     key: 'root',
     storage,
   }
   
-  const persistedReducer = persistReducer(persistConfig, userDataReducer)
+  const ReducerCombine = combineReducers({
+    userData: userDataReducer,
+    loading: loadingReducer
+  })
+
+  const persistedReducer = persistReducer(persistConfig, ReducerCombine)
   
   export const store = configureStore({
     reducer: persistedReducer,
