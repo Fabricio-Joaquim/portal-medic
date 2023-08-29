@@ -6,10 +6,9 @@ const Home = () => {
   const { medications, columns, handlerPageLimit, handlerSearch } = useModelHome();
 
   return (
-    <>
-   <TableGeneric headers={columns} data={medications} handlerPageIndexLimit={handlerPageLimit} />
-   <button onClick={()=>handlerSearch("PAREDR")}>Search</button>
-    </>
+    <div className='lg:w-5/6 bg-slate-500 p-8 max-h-[50] overflow-y-hidden rounded-lg'>
+   <TableGeneric headers={columns} data={medications} handlerPageIndexLimit={handlerPageLimit} handlerSearch={handlerSearch} />
+    </div>
   )
 }
 

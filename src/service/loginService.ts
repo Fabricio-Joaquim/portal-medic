@@ -3,8 +3,10 @@ import { BaseAPI } from "./baseAPI"
 
 
 export class LoginService {
-static async login(data: ILogin):Promise<LoginResponse> {
-        const response = await BaseAPI().post("/login", data)
-        return response.data
+    static async login(data: ILogin): Promise<LoginResponse> {
+        return await BaseAPI()
+            .post("/login", data)
+            .then(({ data }) => data)
+            .catch((error) => error)
     }
 }

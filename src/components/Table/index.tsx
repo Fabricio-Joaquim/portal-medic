@@ -16,7 +16,8 @@ import {
   MdOutlineKeyboardArrowLeft,
   MdOutlineKeyboardArrowRight
 } from 'react-icons/md'
-import React, { useMemo, useState, useEffect } from 'react'
+import React, { useMemo, useState, useEffect, useCallback } from 'react'
+import { BiSearchAlt, BiX } from 'react-icons/bi'
 
 interface ITableGenericHeader {
   header: string;
@@ -30,10 +31,11 @@ interface ITableGenericProps {
     total?: number,
     last_page?: number
   };
-  handlerPageIndexLimit: (page: number, limit:number) => void;
+  handlerPageIndexLimit: (page: number, limit: number) => void;
+  handlerSearch: (search: string) => void;
 }
 
-function TableGeneric({ headers, data, handlerPageIndexLimit }: ITableGenericProps) {
+function TableGeneric({ headers, data, handlerPageIndexLimit, handlerSearch }: ITableGenericProps) {
 
   const [sorting, setSorting] = useState<SortingState>([])
   const sizeOptions = useMemo(() => [10, 20, 30, 40, 50], [])
@@ -83,28 +85,53 @@ function TableGeneric({ headers, data, handlerPageIndexLimit }: ITableGenericPro
     handlerPageIndexLimit(pageIndex + 1, pageSize)
   }, [pageIndex, pageSize])
 
+  const [search, setSearch] = useState<string>("")
+  
+  const resetSearch = useCallback(() => {
+    setSearch("")
+    handlerPageIndexLimit(pageIndex + 1, pageSize)
+  }, [pageIndex, pageSize])
+
+  const handlerChangeSearch = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    setSearch(e.target.value)
+  },[handlerSearch, resetSearch])
+
+
   return (
     <div className="p-2">
       <div className='flex justify-between'>
-      <div className='flex'>
-        <span className="flex items-center gap-1">
-          Page size:
-        </span>
-        <select
-          className="bg-gray-200 border-gray-300 px-4 py-2 text-gray-700 border-2 rounded"
-          value={table.getState().pagination.pageSize}
-          onChange={e => {
-            table.setPageSize(Number(e.target.value))
-          }}
-        >
-          {sizeOptions.map(pageSize => (
-            <option key={pageSize} value={pageSize}>
-              {pageSize}
-            </option>
-          ))}
-        </select>
-      </div>
-      <input className="border rounded px-2 py-3" type="text" placeholder="Search" onChange={(e) => table.setGlobalFilter(e.target.value)} />
+        <div className='flex'>
+          <span className="flex items-center gap-1">
+            Page size:
+          </span>
+          <select
+            className="bg-gray-200 border-gray-300 px-4 py-2 text-gray-700 border-2 rounded"
+            value={table.getState().pagination.pageSize}
+            onChange={e => {
+              table.setPageSize(Number(e.target.value))
+            }}
+          >
+            {sizeOptions.map(pageSize => (
+              <option key={pageSize} value={pageSize}>
+                {pageSize}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className='flex gap-2 justify-center w-1/3 bg-gray-200 rounded'>
+          {search && <button type="button" className="py-3 bg-red-400 px-4 rounded-l-sm hover:bg-red-500 focus:outline-none duration-300"
+            onClick={resetSearch}>
+            <BiX size={25} />
+          </button>}
+          <input onChange={handlerChangeSearch} value={search} className="border-none rounded py-3 bg-gray-200 focus:border-nonee w-full
+          focus:ring-0 focus:outline-none
+        " type="text" placeholder="Search" />
+          <button type="button" className="py-3 bg-blue-400 px-4 rounded-r-sm hover:bg-blue-500 focus:outline-none duration-300"
+            onClick={() => handlerSearch(search)}>
+            <BiSearchAlt size={25} />
+          </button>
+        </div>
       </div>
       <div className="h-2" />
       <table className='striped-table'>
@@ -190,7 +217,7 @@ function TableGeneric({ headers, data, handlerPageIndexLimit }: ITableGenericPro
         </span>
         <button
           className="border rounded px-2 py-3"
-          onClick={() =>  table.nextPage()}
+          onClick={() => table.nextPage()}
           disabled={!table.getCanNextPage()}
         >
           <MdOutlineKeyboardArrowRight />

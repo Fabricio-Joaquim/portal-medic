@@ -8,6 +8,7 @@ import { loginSchema } from "../schema/login.schema";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useMemo } from "react";
+import { toast } from "react-toastify";
 export const useFormLogin = () => {
     const resolverMemoSchemaLogin = useMemo(() => loginSchema, []);
     const navigation = useNavigate();
@@ -24,6 +25,7 @@ export const useFormLogin = () => {
             setTokenAction(token);
             navigation(RouterEnum.HOME);
         })
+        .catch((error) => toast.error(error.msg))
             .finally(() => {
                 setLoadingAction(false);
             });
