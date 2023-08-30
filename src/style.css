@@ -26,3 +26,38 @@
 .striped-table tbody tr:last-child td {
   border-bottom: none;
 }
+
+@media screen and (max-width: 800px) {
+  .striped-table {
+	border: 0;
+  }
+
+  .striped-table thead {
+	display: none;
+  }
+
+  .striped-table tr {
+	margin-bottom: 10px;
+	display: block;
+	border-bottom: 2px solid #ddd;
+  }
+
+  .striped-table td {
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+	font-size: 13px;
+	border-bottom: 1px dotted #ccc;
+  }
+
+  .striped-table td:last-child {
+	border-bottom: 0;
+  }
+
+  .striped-table td:before {
+	content: attr(data-label);
+	float: left;
+	text-transform: uppercase;
+	font-weight: bold;
+  }
+}

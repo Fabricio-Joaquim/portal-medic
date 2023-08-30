@@ -22,7 +22,7 @@ export const CheckboxItem = ({ name, label, control, ...rest }: Checkbox) => {
                 className="w-4 h-4 mr-2 text-blue-500 border-gray-300 rounded focus:ring-blue-500 hidden"
             />
             <label htmlFor={name} 
-            className={`text-gray-700 p-3 bg-orange-500 duration-200 rounded-md w-52 justify-center flex ${field.value ? 'font-bold bg-slate-100' : 'font-normal'}`}>
+            className={`text-gray-700 p-3 bg-orange-500 duration-200 rounded-md w-52 justify-center flex ${field.value ? 'font-bold bg-green-600 text-white' : 'font-normal'}`}>
                 {label}
             </label>
         </div>

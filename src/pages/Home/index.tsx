@@ -6,9 +6,12 @@ const Home = () => {
   const { medications, columns, handlerPageLimit, handlerSearch } = useModelHome();
 
   return (
-    <div className='lg:w-5/6 bg-slate-500 p-8 max-h-[50] overflow-y-hidden rounded-lg'>
-   <TableGeneric headers={columns} data={medications} handlerPageIndexLimit={handlerPageLimit} handlerSearch={handlerSearch} />
-    </div>
+    <>
+      <h2 className='text-3xl lg:text-5xl font-bold mb-4'>List of medications</h2>
+      <div className='lg:w-5/6 bg-slate-500 p-0 lg:p-8 max-h-[50] overflow-y-hidden rounded-lg'>
+        <TableGeneric headers={columns} data={medications} handlerPageIndexLimit={handlerPageLimit} handlerSearch={handlerSearch} />
+      </div>
+    </>
   )
 }
 
