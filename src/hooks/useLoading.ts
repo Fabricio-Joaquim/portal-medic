@@ -1,10 +1,11 @@
+import { useAppDispatch, useAppSelector } from "@store/hookRedux"
 import { setLoading } from "../store/Loading"
-import { useDispatchApplication, useASelectorApplication } from "@store/hookRedux"
+import { RootState } from "@store/index";
 
 export const useLoading = () => {
 
-    const dispatch = useDispatchApplication();
-    const loading = useASelectorApplication((state) => state.loading.loading);
+    const dispatch = useAppDispatch();
+    const loading = useAppSelector((state: RootState) => state.loading.loading);
     const setLoadingAction = (loading: boolean) => dispatch(setLoading(loading));
 
     return { loading, setLoadingAction };

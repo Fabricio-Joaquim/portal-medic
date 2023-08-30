@@ -1,5 +1,4 @@
 import { Sidebar } from "@components/SideBar"
-import React from 'react'
 
 export const LayerPrivate = ({ children }: any) => {
     return (

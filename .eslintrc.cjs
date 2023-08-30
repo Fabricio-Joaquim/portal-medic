@@ -14,14 +14,7 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
-    "@typescript-eslint/no-restricted-imports": [
-      "warn",
-      {
-        "name": "react-redux",
-        "importNames": ["useSelector", "useDispatch"],
-        "message": "Use typed hooks `useAppDispatch` and `useAppSelector` instead.",
-      }
-    ],
     '@typescript-eslint/no-explicit-any': 'off',
+    "react-hooks/exhaustive-deps": "off",
   },
 }
