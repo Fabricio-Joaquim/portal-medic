@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface IUserData {
     token: string;
+    auth?: boolean;
 }
 
 export const initialState: IUserData = {
@@ -20,12 +21,20 @@ const userDataSlice = createSlice({
         },
         getToken: (state) => {
             state.token
+        },
+        changeAuth: (state, action: PayloadAction<boolean>) => {
+            state.auth = action.payload;
+        },
+        isAuth: (state) => {
+            state.auth
+        },
+        cleanAuth: (state) => {
+            state.auth = false;
         }
-
     }
 })
 
 
-export const { setToken, cleanToken, getToken } = userDataSlice.actions
+export const { setToken, cleanToken, getToken, isAuth, changeAuth, cleanAuth } = userDataSlice.actions
 
 export default userDataSlice.reducer

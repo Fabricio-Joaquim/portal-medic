@@ -1,14 +1,25 @@
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { LayerPrivate } from '@components/LayerPrivateScreen';
+import { Route, useNavigate, Routes } from 'react-router-dom';
+import { RouterEnum } from '../Enum/routerEnum';
 import { Loading } from '@components/Loading';
 import { RouterList } from "./routesList";
-import React from 'react';
+import { useAuth } from '@hooks/useAuth';
 import { PrivateRoute } from './private';
+import React, { useEffect } from 'react';
 
 const App = () => {
 
+  const { isAuth } = useAuth()
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (isAuth) {
+      navigate(RouterEnum.HOME)
+    }
+  }
+  , [])
+
+
   return (
-    <Router>
       <React.Suspense fallback={<Loading />}>
         <Routes>
           {
@@ -37,7 +48,6 @@ const App = () => {
           }
         </Routes>
       </React.Suspense>
-    </Router>
   );
 };
 

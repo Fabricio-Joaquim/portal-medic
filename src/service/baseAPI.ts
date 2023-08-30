@@ -10,27 +10,24 @@ const api = axios.create({
         "Authorization": `Bearer ${getToken()}`,
     }
 })
-console.log(getToken())
+
 api.interceptors.response.use(
     (response) => {
         return response
     },
-    (error: Errors) => {
-        console.log(error.response.data.message)
-        const errors = formatErrors(error)
-
-        if (error.response.status === 401) {
+    async (error: Errors) => {
+        if (error.response.status === 401 || error.response.data.message.includes("token")) {
             window.location.href = '/'
             localStorage.clear()
         }
 
-        return Promise.reject(errors)
+        return Promise.reject(formatErrors(error))
     }
 )
 
 api.interceptors.request.use(async (response: any) => {
-      response.headers.Authorization = `Bearer ${getToken()}`;
+    response.headers.Authorization = `Bearer ${getToken()}`;
     return response;
-  });
+});
 
 export { api }

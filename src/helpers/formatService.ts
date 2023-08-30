@@ -18,10 +18,9 @@ export interface FormatApiResponse {
 function formatErrors(errorResponse: Errors): Promise<FormatApiResponse> {
 
   const { status } = errorResponse.response
-  const { message, errors } = errorResponse.response.data
+  const { message } = errorResponse.response.data
 
   return Promise.reject({
-    data: errors,
     msg: message,
     code: status,
   });

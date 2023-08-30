@@ -5,6 +5,7 @@ import { RouterEnum } from '../../Enum/routerEnum';
 import { FaClipboardList } from 'react-icons/fa';
 import { RiLogoutBoxFill } from 'react-icons/ri';
 import { useState } from 'react';
+import { useAuth } from '@hooks/useAuth';
 
 const LISTSIDE = [
     {
@@ -22,11 +23,17 @@ const LISTSIDE = [
 const Sidebar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const { cleanTokenAction } = useUserData()
+    const { cleanAuthAction } = useAuth()
     const toggleSidebar = () => {
         setIsOpen(!isOpen);
     };
 
     const location = useLocation().pathname;
+
+    const handlerLogout = () => {
+        cleanTokenAction();
+        cleanAuthAction()
+    }
 
     return (
         <aside
@@ -59,7 +66,7 @@ const Sidebar = () => {
             </div>
             <Link
                 to="/"
-                onClick={() => cleanTokenAction()}
+                onClick={handlerLogout}
                 className="flex items-center w-full px-3 h-16 mt-auto bg-gray-800 hover:bg-gray-700 hover:text-gray-300"
             >
                 <RiLogoutBoxFill size={30} className="fixed" />
