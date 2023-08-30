@@ -18,6 +18,7 @@ import {
 } from 'react-icons/md'
 import React, { useMemo, useState, useEffect, useCallback } from 'react'
 import { BiSearchAlt, BiX } from 'react-icons/bi'
+import { requestMedications } from '../../interface/medicationsInterface';
 
 interface ITableGenericHeader {
   header: string;
@@ -31,11 +32,10 @@ interface ITableGenericProps {
     total?: number,
     last_page?: number
   };
-  handlerPageIndexLimit: (page: number, limit: number) => void;
-  handlerSearch: (search: string) => void;
+  handlerSearch: (paramSearch: requestMedications) => void;
 }
 
-function TableGeneric({ headers, data, handlerPageIndexLimit, handlerSearch }: ITableGenericProps) {
+function TableGeneric({ headers, data, handlerSearch }: ITableGenericProps) {
 
   const [sorting, setSorting] = useState<SortingState>([])
   const sizeOptions = useMemo(() => [10, 20, 30, 40, 50], [])
@@ -82,14 +82,14 @@ function TableGeneric({ headers, data, handlerPageIndexLimit, handlerSearch }: I
   })
 
   useEffect(() => {
-    handlerPageIndexLimit(pageIndex + 1, pageSize)
+    handlerSearch({ search, page: pageIndex + 1, limit: pageSize })
   }, [pageIndex, pageSize])
 
   const [search, setSearch] = useState<string>("")
 
   const resetSearch = useCallback(() => {
     setSearch("")
-    handlerPageIndexLimit(pageIndex + 1, pageSize)
+    handlerSearch({ page: pageIndex + 1, limit: pageSize })
   }, [pageIndex, pageSize])
 
   const handlerChangeSearch = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -97,6 +97,9 @@ function TableGeneric({ headers, data, handlerPageIndexLimit, handlerSearch }: I
     setSearch(e.target.value)
   }, [handlerSearch, resetSearch])
 
+  const onSubmitSearch = useCallback(() => {
+    handlerSearch({ search, page: pageIndex + 1, limit: pageSize })
+  }, [search])
 
   return (
     <div className="p-2">
@@ -128,7 +131,7 @@ function TableGeneric({ headers, data, handlerPageIndexLimit, handlerSearch }: I
           focus:ring-0 focus:outline-none
         " type="text" placeholder="Search" />
           <button type="button" className="py-3 bg-blue-400 px-4 rounded-r-sm hover:bg-blue-500 focus:outline-none duration-300"
-            onClick={() => handlerSearch(search)}>
+            onClick={onSubmitSearch}>
             <BiSearchAlt size={25} />
           </button>
         </div>
