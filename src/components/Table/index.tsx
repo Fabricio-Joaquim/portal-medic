@@ -134,6 +134,7 @@ function TableGeneric({ headers, data, handlerPageIndexLimit, handlerSearch }: I
         </div>
       </div>
       <div className="h-2" />
+      <div className="max-h-96 overflow-y-auto">
       <table className='striped-table'>
         <thead className='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>
           {table.getHeaderGroups().map(headerGroup => (
@@ -192,6 +193,7 @@ function TableGeneric({ headers, data, handlerPageIndexLimit, handlerSearch }: I
           })}
         </tbody>
       </table>
+      </div>
       <div className="h-2" />
       <div className="flex items-center gap-2 justify-center">
         <button
