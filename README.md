@@ -1,14 +1,20 @@
 # Running the Project
 1. Clone the repository
-2. Install dependencies
+
+2. Create a .env file in the root of the project with the following content
+   ```bash
+   VITE_BASE_URL=URL_OF_THE_API 
+   ```
+
+3. Install dependencies
    ```bash
    yarn
    ```
-3. Run the project
+4. Run the project
    ```bash
    yarn dev
    ```
-4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 # Running the Tests
 1. create a cypress.env.json file in the root of the project with the following content

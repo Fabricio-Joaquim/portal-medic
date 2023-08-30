@@ -4,7 +4,7 @@ interface IUserData {
     token: string;
 }
 
-const initialState: IUserData = {
+export const initialState: IUserData = {
     token: '',
 }
 
