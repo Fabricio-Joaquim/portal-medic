@@ -8,9 +8,7 @@ const App = () => {
   return (
     <>
       {loading && <Loading />}
-      <div className="min-h-screen justify-center flex items-center bg-slate-600">
         <NavigationRoutes />
-      </div>
     </>
   )
 }

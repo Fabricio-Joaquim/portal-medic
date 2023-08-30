@@ -1,5 +1,5 @@
 import { RiLockPasswordLine, RiUser3Fill } from "react-icons/ri";
-import { useFormLogin } from './hookForm/useFormLogin'
+import { useFormLogin } from './viewModel/useFormLogin'
 import { InputText } from '../../components/TextInput'
 import { Button } from '../../components/Button'
 

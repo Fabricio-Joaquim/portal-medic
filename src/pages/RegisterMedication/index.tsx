@@ -1,6 +1,7 @@
 import { useRegisterMedication } from './viewModel/useRegisterMedication'
 import { InputText } from '@components/TextInput'
 import CheckboxList from '@components/Checkbox'
+import { Button } from '@components/Button'
 
 const RegisterMedication = () => {
 
@@ -13,7 +14,8 @@ const RegisterMedication = () => {
 
   return (
     <>
-      <form onSubmit={onSubmit}>
+      <h1 className='text-5xl font-bold mb-7'>Register Medication</h1>
+      <form onSubmit={onSubmit} className='lg:w-5/6 bg-slate-500 p-8 max-h-[50] overflow-y-hidden rounded-lg flex flex-col gap-5 items-center'>
         <div className="grid grid-cols-2 gap-4">
           <InputText
             placeholder="Name of the drug"
@@ -47,9 +49,10 @@ const RegisterMedication = () => {
             name='manufacturers'
             error={errors?.manufacturers?.root?.message as string}
           />
-
         </div>
-        <button type="submit">Register</button>
+        <Button color='success' type='submit'>
+          REGISTER
+        </Button>
       </form>
     </>
   )
