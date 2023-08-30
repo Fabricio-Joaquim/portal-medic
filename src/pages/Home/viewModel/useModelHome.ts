@@ -1,8 +1,8 @@
-import { toast } from "react-toastify";
-import { useLoading } from "../../../hooks/useLoading";
 import { MedicationsResponse } from "../../../interface/medicationsInterface";
 import { MedicationService } from "../../../service/medicationService";
+import { useLoading } from "../../../hooks/useLoading";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 const useModelHome = () => {
   const [medications, setMedications] = useState<MedicationsResponse>({} as MedicationsResponse);
