@@ -1,13 +1,14 @@
 import { useForm } from 'react-hook-form';
 import { InputText } from './index'
-import { controlMock } from './mock'
+import { mount } from 'cypress/react18';
+
 describe('<InputText />', () => {
   it('renders', () => {
+    const { control } = useForm()
 
-
-    cy.mount(
+    mount(
       <>
-        <InputText control={controlMock} label='Exemplo' name='exemplo' placeholder='' />
+        <InputText control={control} label='Exemplo' name='exemplo' placeholder='' />
       </>
     )
   })

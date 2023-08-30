@@ -17,7 +17,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "types": ["node"],
+    "types": ["node", "cypress"],
     "paths": {
     "@components/*": ["./src/components/*"],
     "@pages/*": ["./pages/*"],
@@ -28,6 +28,6 @@
     "@hooks/*": ["./src/hooks/*"],
     }
   },
-  "include": ["src", "cypress.d.ts"],
+  "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }],
 }

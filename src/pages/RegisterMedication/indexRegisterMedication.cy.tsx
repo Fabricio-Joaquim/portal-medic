@@ -1,11 +1,13 @@
 import { BrowserRouter } from 'react-router-dom'
+import { mount } from 'cypress/react18';
 import RegisterMedication from './'
-import React from 'react'
+
+
 describe('<RegisterMedication />', () => {
   it('renders', () => {
-    cy.mount(
+    mount(
       <BrowserRouter>
-        <RegisterMedication />
+    <RegisterMedication />
       </BrowserRouter>
     )
   })
