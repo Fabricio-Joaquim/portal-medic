@@ -1,10 +1,10 @@
 import { ILogin, LoginResponse } from "../interface/LoginInterface"
-import { BaseAPI } from "./baseAPI"
+import { api } from "./baseAPI"
 
 
 export class LoginService {
     static async login(data: ILogin): Promise<LoginResponse> {
-        return await BaseAPI()
+        return await api
             .post("/login", data)
             .then(({ data }) => data)
             .catch((error) => error)

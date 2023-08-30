@@ -12,15 +12,16 @@ const userDataSlice = createSlice({
     name: 'userData',
     initialState,
     reducers: {
-        setToken(state, action:PayloadAction<string>) {
+        setToken: (state, action: PayloadAction<string>) => {
             state.token = action.payload;
         },
-        cleanToken(state) {
-            state.token = '';
+        cleanToken: (state) => {
+            state.token = initialState.token;
         },
-        getToken(state) {
-            return state.token;
+        getToken: (state) => {
+            state.token
         }
+
     }
 })
 

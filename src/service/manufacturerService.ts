@@ -1,8 +1,8 @@
-import { BaseAPI } from "./baseAPI"
+import { api } from "./baseAPI"
 
 export class ManufacturerService {
     static async getManufacturers(): Promise<any> {
-        return BaseAPI().get(`manufacturers`)
+        return api.get(`manufacturers`)
             .then(({ data }) => data)
             .catch((error) => (error));
     }
