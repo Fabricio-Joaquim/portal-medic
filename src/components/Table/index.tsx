@@ -104,9 +104,9 @@ function TableGeneric({ headers, data, handlerSearch }: ITableGenericProps) {
   return (
     <div className="p-2">
       <div className='flex justify-between'>
-        <div className='flex'>
+        <div className='flex md:flex-row flex-col'>
           <span className="flex items-center gap-1">
-            Page size:
+            Page limit:
           </span>
           <select
             className="bg-gray-200 border-gray-300 px-4 py-2 text-gray-700 border-2 rounded"
@@ -122,7 +122,7 @@ function TableGeneric({ headers, data, handlerSearch }: ITableGenericProps) {
             ))}
           </select>
         </div>
-        <div className='flex gap-2 justify-center w-1/3 bg-gray-200 rounded'>
+        <div className='flex gap-2 justify-center w-full md:w-1/3 bg-gray-200 rounded'>
           {search && <button type="button" className="py-3 bg-red-400 px-4 rounded-l-sm hover:bg-red-500 focus:outline-none duration-300"
             onClick={resetSearch}>
             <BiX size={25} />

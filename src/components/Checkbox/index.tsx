@@ -10,8 +10,8 @@ interface IProps {
 export const CheckboxList = ({ manufactureOptions, control, name, error }: IProps) => {
 
     return (
-        <div className="flex flex-col">
-            <div className="flex items-center gap-4">
+        <>
+            <div className="flex items-center gap-4 flex-row flex-wrap col-span-full">
                 {
                     manufactureOptions?.map((item) => (
                         <CheckboxItem
@@ -26,7 +26,7 @@ export const CheckboxList = ({ manufactureOptions, control, name, error }: IProp
             {
                 error && <span className="text-red-500">{error}</span>
             }
-        </div>
+        </>
     )
 }
 
