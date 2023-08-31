@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { RiLogoutBoxFill } from 'react-icons/ri';
-import { BsGearFill } from 'react-icons/bs';
 import { ViewModelSideBar } from './useModel';
+import { BsGearFill } from 'react-icons/bs';
 import { useState } from 'react';
 
 
@@ -18,14 +18,14 @@ const Sidebar = () => {
 
     return (
         <aside
-            className={`md:flex flex-col hidden w-14 items-center ${isOpen ? 'w-14' : 'w-52'
+            className={`lg:flex flex-col hidden w-14 items-center ${isOpen ? 'w-14' : 'w-52'
                 } overflow-hidden transition-max-height duration-500 ease-in-out text-gray-400 bg-gray-900 rounded`}
         >
             <button
                 className="flex gap-2 items-center w-full px-3 mt-3"
                 onClick={toggleSidebar}
             >
-                <BsGearFill size={30} />
+                <BsGearFill size={30} className="fixed" />
                 <span className="text-sm ml-11 font-medium">Menu</span>
             </button>
             <div className="w-full px-2 border-t border-gray-700 mt-3">
@@ -50,7 +50,7 @@ const Sidebar = () => {
                 onClick={handlerLogout}
                 className="flex items-center w-full px-3 h-16 mt-auto bg-gray-800 hover:bg-gray-700 hover:text-gray-300"
             >
-                <RiLogoutBoxFill size={30} />
+                <RiLogoutBoxFill size={30} className="fixed" />
                 <span className="ml-11 text-sm font-medium">Logout</span>
             </Link>
         </aside>

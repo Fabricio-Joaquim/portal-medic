@@ -149,7 +149,7 @@ function TableGeneric({ headers, data, handlerSearch }: ITableGenericProps) {
                         <div
                           {...{
                             className: header.column.getCanSort()
-                              ? 'cursor-pointer select-none'
+                              ? 'cursor-pointer hover:bg-slate-50 duration-300 hover:border-1 hover:border-black select-none'
                               : '',
                             onClick: header.column.getToggleSortingHandler(),
                           }}
@@ -201,18 +201,18 @@ function TableGeneric({ headers, data, handlerSearch }: ITableGenericProps) {
       <div className="h-2" />
       <div className="flex items-center gap-2 justify-center">
         <button
-          className="border rounded px-2 py-3"
+          className="border rounded px-2 py-3 bg-slate-300 cursor-pointer hover:bg-slate-50 duration-300 hover:border-1 hover:border-black"
           onClick={() => table.setPageIndex(0)}
           disabled={!table.getCanPreviousPage()}
         >
-          <MdOutlineKeyboardDoubleArrowLeft />
+          <MdOutlineKeyboardDoubleArrowLeft size={20}/>
         </button>
         <button
-          className="border rounded px-2 py-3"
+          className="border rounded px-2 py-3 bg-slate-200 cursor-pointer hover:bg-slate-50 duration-300 hover:border-1 hover:border-black"
           onClick={() => table.previousPage()}
           disabled={!table.getCanPreviousPage()}
         >
-          <MdOutlineKeyboardArrowLeft />
+          <MdOutlineKeyboardArrowLeft size={20}/>
         </button>
         <span className="flex items-center gap-1">
           <div>Page</div>
@@ -222,18 +222,18 @@ function TableGeneric({ headers, data, handlerSearch }: ITableGenericProps) {
           </strong>
         </span>
         <button
-          className="border rounded px-2 py-3"
+          className="border rounded px-2 py-3 bg-slate-200 cursor-pointer hover:bg-slate-50 duration-300 hover:border-1 hover:border-black"
           onClick={() => table.nextPage()}
           disabled={!table.getCanNextPage()}
         >
-          <MdOutlineKeyboardArrowRight />
+          <MdOutlineKeyboardArrowRight size={20}/>
         </button>
         <button
-          className="border rounded px-2 py-3"
+          className="border rounded px-2 py-3 bg-slate-300 cursor-pointer hover:bg-slate-50 duration-300 hover:border-1 hover:border-black"
           onClick={() => table.setPageIndex(table.getPageCount() - 1)}
           disabled={!table.getCanNextPage()}
         >
-          <MdOutlineKeyboardDoubleArrowRight />
+          <MdOutlineKeyboardDoubleArrowRight size={20}/>
         </button>
       </div>
     </div>

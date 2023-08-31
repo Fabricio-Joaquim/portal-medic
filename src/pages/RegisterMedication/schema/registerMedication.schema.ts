@@ -13,7 +13,13 @@ export const registerMedicationSchema = yup.object().shape({
     expires_on: yup.date()
         .required('Expires on is required')
         .typeError('Expires on is required')
-        .min(yup.ref('issued_on'), 'Expires on must be greater than issued on'),
+        .test('expires_on', 'Expires on must be greater than issued on', function (value) {
+            const { issued_on } = this.parent;
+            if (issued_on && value) {
+                return new Date(value) > new Date(issued_on);
+            }
+            return true;
+        }),
     manufacturers: yup.object()
         .required("required")
         .test('manufacturers', 'Manufacturers is required', (value) => {
