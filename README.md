@@ -14,7 +14,7 @@
    ```bash
    yarn dev
    ```
-5. Open [http://localhost:3000](http://localhost:5173) with your browser to see the result.
+5. Open [http://localhost:5173](http://localhost:5173) with your browser to see the result.
 
 # Running the Tests
 1. create a cypress.env.json file in the root of the project with the following content
@@ -25,7 +25,12 @@
    }
    ```
 
-2. Run the tests
+2. [Open the App - Cypress](https://docs.cypress.io/guides/getting-started/opening-the-app)
+
+   [Install Cypress](https://docs.cypress.io/guides/getting-started/installing-cypress)
+
+
+3. Run the tests
    ```bash
    yarn cypress
    ```
