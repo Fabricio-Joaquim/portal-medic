@@ -127,10 +127,10 @@ function TableGeneric({ headers, data, handlerSearch }: ITableGenericProps) {
             onClick={resetSearch}>
             <BiX size={25} />
           </button>}
-          <input onChange={handlerChangeSearch} value={search} className="border-none rounded py-3 bg-gray-200 focus:border-nonee w-full
+          <input onChange={handlerChangeSearch} name="search" value={search} className="border-none rounded py-3 bg-gray-200 focus:border-nonee w-full
           focus:ring-0 focus:outline-none
         " type="text" placeholder="Search" />
-          <button type="button" className="py-3 bg-blue-400 px-4 rounded-r-sm hover:bg-blue-500 focus:outline-none duration-300"
+          <button type="button" name='button-search' className="py-3 bg-blue-400 px-4 rounded-r-sm hover:bg-blue-500 focus:outline-none duration-300"
             onClick={onSubmitSearch}>
             <BiSearchAlt size={25} />
           </button>

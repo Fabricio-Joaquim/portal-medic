@@ -1,4 +1,4 @@
-import '../../src/style.css';
+//import '../../src/style.css';
 /// <reference types="cypress" />
 // ***********************************************
 // This example commands.ts shows you how to
