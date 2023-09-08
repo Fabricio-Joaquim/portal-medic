@@ -6,6 +6,14 @@ import path from "path";
 
 export default defineConfig({
   plugins: [react(), tsconfigPaths()],
+  server: {
+    watch: {
+      usePolling: true,
+    },
+    host: true,
+    strictPort: true,
+    port: 5173,
+  },
   resolve: {
     alias: [
       { find: "@", replacement: path.resolve(__dirname, "src") },

@@ -1,0 +1,11 @@
+
+version: '3'
+services:
+  portal-medic:
+    build:
+      context: .
+    image: portal-medic-image
+    container_name: portal-medic
+    working_dir: /app
+    ports:
+      - "5173:5173"
