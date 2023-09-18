@@ -6,7 +6,7 @@ export const LayerPrivate = ({ children }: any) => {
         <div className="lg:grid flex lg:grid-cols-dashboard lg:grid-rows-dashboard h-screen">
             <Sidebar />
             <MobileBar />
-            <div className="flex flex-col w-full items-center justify-center">
+            <div className="flex flex-col w-full items-center justify-normal lg:justify-center">
                 {children}
             </div>
         </div>

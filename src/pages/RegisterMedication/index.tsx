@@ -15,7 +15,7 @@ const RegisterMedication = () => {
   return (
     <>
       <h1 className='text-3xl md:text-5xl font-bold mb-7'>Register Medication</h1>
-      <form onSubmit={onSubmit} className='lg:w-5/6 bg-slate-500 p-8 max-h-[50] overflow-y-hidden rounded-lg flex flex-col gap-5 items-center'>
+      <form onSubmit={onSubmit} className='lg:w-5/6 bg-slate-500 p-8 pb-16 max-h-[50] overflow-y-scroll rounded-lg flex flex-col gap-5 items-center'>
         <div className="grid md:grid-cols-2 grid-cols-1 gap-4">
           <InputText
             placeholder="Name of the drug"
