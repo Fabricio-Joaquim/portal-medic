@@ -1,7 +1,8 @@
-import { MobileBar } from "@components/SideBar/MobileBar"
-import { Sidebar } from "@components/SideBar"
+import { MobileBar } from "../SideBar/MobileBar"
+import { Sidebar } from "../SideBar"
+import React from "react"
 
-export const LayerPrivate = ({ children }: any) => {
+export const LayerPrivate = ({ children }: React.PropsWithChildren) => {
     return (
         <div className="lg:grid flex lg:grid-cols-dashboard lg:grid-rows-dashboard h-screen">
             <Sidebar />
