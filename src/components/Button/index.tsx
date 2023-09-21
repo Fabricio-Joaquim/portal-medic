@@ -3,6 +3,7 @@ import React from 'react'
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     children: React.ReactNode;
     color?: "primary" | "secondary" | "danger" | "success" | "warning";
+    className?: string;
 }
 
 const colorMap = {
@@ -13,11 +14,11 @@ const colorMap = {
     warning: "bg-yellow-500 hover:bg-yellow-600 hover:border-yellow-700 hover:border-1",
 }
 
-export const Button = ({ children, ...rest }: Props) => {
+export const Button = ({ children, className, ...rest }: Props) => {
     return (
         <button
             className={`relative inline-block m-4 px-8 py-4 text-base font-bold text-white ease-out duration-200 shadow-sm rounded-xl bg-slate-600
-            hover:text-zinc-600 hover:bg-slate-100 ${colorMap[rest.color ?? "primary"]} hover:shadow-2xl ${rest.className}}`}
+            hover:text-zinc-600 hover:bg-slate-100 ${colorMap[rest.color ?? "primary"]} hover:shadow-2xl ${className}}`}
             {...rest}>
             {children}
         </button>

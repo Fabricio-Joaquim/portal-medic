@@ -1,13 +1,12 @@
-/* eslint-disable */
-import { FieldValues, UseControllerProps, useController } from "react-hook-form";
+import { useController } from "react-hook-form";
+import { IconType } from "react-icons";
 interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
     name: string;
     label: string;
     placeholder: string;
-    //@ts-ignore
-    control: UseControllerProps<FieldValues>[unknown];
-    Icon?: string;
-};
+    control: any;
+    Icon?: IconType;
+}
 
 export const InputText = ({ name: nameInput, label, control, placeholder, Icon, ...rest }: Props) => {
     const {

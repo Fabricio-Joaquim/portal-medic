@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { it, jest, describe, expect } from '@jest/globals';
 import { renderHook } from '@testing-library/react-hooks';
 import { useDispatch, useSelector } from 'react-redux';

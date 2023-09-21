@@ -1,4 +1,5 @@
-import { expect, it, jest, describe } from '@jest/globals';
+//@ts-nocheck
+import { expect, it, describe, jest } from '@jest/globals';
 import { renderHook } from '@testing-library/react-hooks';
 import { useDispatch, useSelector } from 'react-redux';
 import { useUserData } from '../useUserData';
