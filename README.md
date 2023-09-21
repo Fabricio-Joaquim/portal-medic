@@ -29,15 +29,15 @@
    ```bash
    yarn test:unit
    ```
-   - remember to run the project before running the tests
 
+   
 3. Integration E2E Tests
    ```bash
    yarn test:e2e
    ```
-   - remember to run the project before running the tests
 
-4. [Open the App - Cypress](https://docs.cypress.io/guides/getting-started/opening-the-app)
+   
+4. Extend:[Open the App - Cypress](https://docs.cypress.io/guides/getting-started/opening-the-app)
 
    [Install Cypress](https://docs.cypress.io/guides/getting-started/installing-cypress)
 
