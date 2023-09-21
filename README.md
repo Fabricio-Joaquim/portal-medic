@@ -25,15 +25,23 @@
    }
    ```
 
-2. [Open the App - Cypress](https://docs.cypress.io/guides/getting-started/opening-the-app)
+2. Unit Tests
+   ```bash
+   yarn test:unit
+   ```
+   - remember to run the project before running the tests
+
+3. Integration E2E Tests
+   ```bash
+   yarn test:e2e
+   ```
+   - remember to run the project before running the tests
+
+4. [Open the App - Cypress](https://docs.cypress.io/guides/getting-started/opening-the-app)
 
    [Install Cypress](https://docs.cypress.io/guides/getting-started/installing-cypress)
 
 
-3. Run the tests
-   ```bash
-   yarn cypress
-   ```
 - remember to run the project before running the tests
 
 
@@ -55,6 +63,7 @@
    - React Redux
    - Redux Persist
    - Reac-Table
+   - Jest
 
 ## See the project running
 - [https://portal-medic.vercel.app](https://portal-medic.vercel.app)

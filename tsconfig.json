@@ -6,7 +6,7 @@
     "module": "ESNext",
     "skipLibCheck": true,
 
-    "moduleResolution": "bundler",
+    "moduleResolution": "Node",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": false,
@@ -28,6 +28,6 @@
     "@hooks/*": ["./src/hooks/*"],
     }
   },
-  "include": ["src"],
+  "include": ["src", "setup-tests.js", "vite.config.ts"],
   "references": [{ "path": "./tsconfig.node.json" }],
 }
